@@ -10,6 +10,8 @@
 	<script type="text/javascript" src="paper-full.js"></script>
 	<!-- Define inlined PaperScript associate it with myCanvas -->
 	<script type="text/paperscript" canvas="myCanvas">
+		//variables to hold all soundNames
+		var soundNames = ["bubbles", "clay", "confetti", "corona", "dotted-spiral", "flash-1", "flash-2", "flash-3", "glimmer", "moon", "pinwheel", "piston-1", "piston-2", "piston-3", "prism-1", "prism-2", "prism-3", "splits", "squiggle", "strike", "suspension", "timer", "ufo", "veil", "wipe", "zig-zag"] ;
 
 		// variable to hold all circles
 		var circles = [];
@@ -27,9 +29,10 @@
 			myCircle.fillColor = 'purple';
 			circles.push(myCircle);
 
-			var soundNames = ["bubbles", "clay", "confetti", "corona", "dotted-spiral", "flash-1", "flash-2", "flash-3"] ;
+			
 			//play sound for each keydown
-			var pickedSound = "sounds/"+soundNames[4]+".mp3";
+			var pickedSoundIndex = Math.floor(Math.random()*soundNames.length);
+			var pickedSound = "sounds/"+soundNames[pickedSoundIndex]+".mp3";
 			var sound = new Howl({
 			  urls: [pickedSound]
 			}).play();
