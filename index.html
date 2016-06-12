@@ -4,7 +4,8 @@
 	<title>Pulok's Patatap Clone</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
-
+	<!-- cdn link of howler.js -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.29/howler.js"></script>
 	<!-- paper.js -->
 	<script type="text/javascript" src="paper-full.js"></script>
 	<!-- Define inlined PaperScript associate it with myCanvas -->
@@ -26,10 +27,15 @@
 			myCircle.fillColor = 'purple';
 			circles.push(myCircle);
 
-			console.log(circles);
+			var soundNames = ["bubbles", "clay", "confetti", "corona", "dotted-spiral", "flash-1", "flash-2", "flash-3"] ;
+			//play sound for each keydown
+			var pickedSound = "sounds/"+soundNames[4]+".mp3";
+			var sound = new Howl({
+			  urls: [pickedSound]
+			}).play();
 		}
 
-		//crating animation effect to scale the size of circle
+		//creating animation effect to scale the size of circle
 		function onFrame(event) {
 			for(var i=0; i<circles.length; i++)
 				{
