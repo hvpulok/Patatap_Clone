@@ -29,7 +29,6 @@
 			var b = Math.floor(Math.random()*256);
 			// rgb(r,g,b)
 			var randomRGB = "rgb("+ r + ","+ g + ","+ b + ")";
-			console.log(randomRGB);
 
 			//create circle at newPoint
 			var myCircle = new Path.Circle(newPoint, 400);
@@ -46,12 +45,24 @@
 		}
 
 		//creating animation effect to scale the size of circle
+		var j =0 ;
 		function onFrame(event) {
-			for(var i=0; i<circles.length; i++)
+			j++;
+			if(j<200){
+				for(var i=0; i<circles.length; i++)
 				{
 					circles[i].fillColor.hue += 2;
 					circles[i].scale(0.95);
 				}
+			}
+			else{
+				j = 0; //reset the j to zero
+				for(var i=0; i<circles.length; i++)
+				{
+					circles[i].remove(); //remove the circle from the canvas
+				}
+				circles = []; //remove all circles from the array 
+			}
 		}
 
 		
