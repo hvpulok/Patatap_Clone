@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pulok's Patatap Clone</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+
+	<!-- paper.js -->
+	<script type="text/javascript" src="paper-full.js"></script>
+	<!-- Define inlined PaperScript associate it with myCanvas -->
+	<script type="text/paperscript" canvas="myCanvas">
+
+	for(var j=0; j<10; j++){
+		for(var i=0; i<10; i++){
+			var myCircle = new Path.Circle(new Point(50+80*i, 80+70*j), 10);
+			myCircle.fillColor = 'purple';
+		}
+
+	}	
+		
+
+
+	</script>
+
+
+
+
+</head>
+<body>
+	<div id="container">
+		<h1>Press any key!</h1>
+		<canvas id="myCanvas" resize></canvas>
+	</div>
+		
+
+
+</body>
+</html>
