@@ -10,13 +10,19 @@
 	<!-- Define inlined PaperScript associate it with myCanvas -->
 	<script type="text/paperscript" canvas="myCanvas">
 
-	for(var j=0; j<10; j++){
-		for(var i=0; i<10; i++){
-			var myCircle = new Path.Circle(new Point(50+80*i, 80+70*j), 10);
+		//keboard button press event listener
+		function onKeyDown(event) {
+			// set maxPoint based on screens maximum visible area
+			var maxPoint = new Point(view.size.width, view.size.height);
+
+			// create random points within maxPoint
+			var newPoint = maxPoint * Point.random();
+
+			//create circle at newPoint
+			var myCircle = new Path.Circle(newPoint, 20);
 			myCircle.fillColor = 'purple';
 		}
 
-	}	
 		
 
 
