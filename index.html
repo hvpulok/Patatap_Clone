@@ -23,10 +23,17 @@
 
 			// create random points within maxPoint
 			var newPoint = maxPoint * Point.random();
+			// create random rgb
+			var r = Math.floor(Math.random()*256);
+			var g = Math.floor(Math.random()*256);
+			var b = Math.floor(Math.random()*256);
+			// rgb(r,g,b)
+			var randomRGB = "rgb("+ r + ","+ g + ","+ b + ")";
+			console.log(randomRGB);
 
 			//create circle at newPoint
 			var myCircle = new Path.Circle(newPoint, 400);
-			myCircle.fillColor = 'purple';
+			myCircle.fillColor = randomRGB;
 			circles.push(myCircle);
 
 			
