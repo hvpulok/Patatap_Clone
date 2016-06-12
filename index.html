@@ -10,6 +10,9 @@
 	<!-- Define inlined PaperScript associate it with myCanvas -->
 	<script type="text/paperscript" canvas="myCanvas">
 
+		// variable to hold all circles
+		var circles = [];
+
 		//keboard button press event listener
 		function onKeyDown(event) {
 			// set maxPoint based on screens maximum visible area
@@ -19,8 +22,20 @@
 			var newPoint = maxPoint * Point.random();
 
 			//create circle at newPoint
-			var myCircle = new Path.Circle(newPoint, 20);
+			var myCircle = new Path.Circle(newPoint, 200);
 			myCircle.fillColor = 'purple';
+			circles.push(myCircle);
+
+			console.log(circles);
+		}
+
+		//crating animation effect to scale the size of circle
+		function onFrame(event) {
+			for(var i=0; i<circles.length; i++)
+				{
+					circles[i].fillColor.hue += 1;
+					circles[i].scale(0.9);
+				}
 		}
 
 		
